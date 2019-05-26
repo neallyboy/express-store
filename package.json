@@ -4,9 +4,9 @@
   "private": true,
   "author": "Neal Miran <neal.miran@gmail.com>",
   "scripts": {
-		"dev": "nodemon --inspect server.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
-		},
+    "dev": "nodemon --inspect server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.4"
