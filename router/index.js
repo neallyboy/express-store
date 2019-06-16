@@ -1,8 +1,23 @@
 'use strict';
 
 const express = require('express');
+const db = require('../server/db');
 
 const router = express.Router();
+
+// Home route
+router.get('/', async (req, res, next) => {
+  const sunshades = await db.getAllCountries();
+
+  // res.sendStatus(200);
+  res.render('home', {
+    pageId: 'home',
+    title: 'Home',
+    sunshades: sunshades.map(sunglasses => ({
+      ...sunglasses,
+    })),
+  });
+});
 
 // Register route
 router.get('/register', (req, res, next) => {
