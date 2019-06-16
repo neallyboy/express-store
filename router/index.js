@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Home route
 router.get('/', async (req, res, next) => {
-  const sunshades = await db.getAllCountries();
+  const sunshades = await db.getSunshades();
 
   // res.sendStatus(200);
   res.render('home', {

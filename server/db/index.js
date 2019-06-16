@@ -18,5 +18,5 @@ async function readSunshades() {
 }
 
 module.exports = {
-  getAllCountries: readSunshades,
+  getSunshades: readSunshades,
 };
