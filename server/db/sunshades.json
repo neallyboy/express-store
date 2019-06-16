@@ -1,50 +1,50 @@
 [
   {
-		"id": "01",
-		"brand": "RAPLH",
+    "id": "01",
+    "brand": "RAPLH",
     "model": "RA4004",
     "color": "Gold/Gold",
-		"gender": "Women",
-		"price": "114.99"
+    "gender": "Women",
+    "price": "114.99"
   },
   {
-		"id": "02",
-		"brand": "RAY-BAN",
-		"model": "RB2132 NEW WAYFARER CLASSIC",
+    "id": "02",
+    "brand": "RAY-BAN",
+    "model": "RB2132 NEW WAYFARER CLASSIC",
     "color": "Black/Green",
-		"gender": "Women",
-		"price": "178.99"
+    "gender": "Women",
+    "price": "178.99"
   },
   {
-		"id": "03",
-		"brand": "PRADA",
-		"model": "PR 08OS",
+    "id": "03",
+    "brand": "PRADA",
+    "model": "PR 08OS",
     "color": "Black/Grey",
-		"gender": "Women",
-		"price": "398.99"
+    "gender": "Women",
+    "price": "398.99"
   },
   {
-		"id": "04",
-		"brand": "VOGUE",
-		"model": "VO5051S",
+    "id": "04",
+    "brand": "VOGUE",
+    "model": "VO5051S",
     "color": "Tortoise/Brown",
-		"gender": "Women",
-		"price": "84.99"
+    "gender": "Women",
+    "price": "84.99"
   },
   {
-		"id": "05",
-		"brand": "OAKLEY",
-		"model": "OO9014 Gascan®",
+    "id": "05",
+    "brand": "OAKLEY",
+    "model": "OO9014 Gascan®",
     "color": "Black/Grey",
-		"gender": "Men",
-		"price": "128.99"
+    "gender": "Men",
+    "price": "128.99"
   },
   {
-		"id": "06",
-		"brand": "PERSOL",
-		"model": "PO2803S",
+    "id": "06",
+    "brand": "PERSOL",
+    "model": "PO2803S",
     "color": "Black/Green",
-		"gender": "Men",
-		"price": "315.99"
-	}
+    "gender": "Men",
+    "price": "315.99"
+  }
 ]

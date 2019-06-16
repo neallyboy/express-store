@@ -15,6 +15,7 @@
 
 						<thead>
 							<tr>
+								<th>ID</th>
 								<th>Brand</th>
 								<th>Model</th>
 								<th>Color</th>
@@ -26,6 +27,7 @@
 						<tbody>
 							<% sunshades.forEach((sunglasses) => { %>
 								<tr>
+									<td><%= sunglasses.id %></td>
 									<td><%= sunglasses.brand %></td>
 									<td><%= sunglasses.model %></td>
 									<td><%= sunglasses.color %></td>
