@@ -91,15 +91,32 @@ router.post('/product', async (req, res, next) => {
 });
 
 // Update Product route
-router.put('/product/:id', (req, res, next) => {
+router.put('/product/:id', async (req, res, next) => {
   // res.send('Update product');
-  res.sendStatus(200);
+  try {
+    await db.updateSunshade(req.params.id);
+    const allSunshades = await db.getSunshades();
+
+    res
+      .json(allSunshades)
+      .status(200);
+  } catch (error) {
+    next(error);
+  }
 });
 
 // Delete by Id route
-router.delete('/product/:id', (req, res, next) => {
-  // res.send('Delete product');
-  res.sendStatus(204);
+router.delete('/product/:id', async (req, res, next) => {
+  try {
+    await db.deleteSunshade(req.params.id);
+    const allSunshades = await db.getSunshades();
+
+    res
+      .json(allSunshades)
+      .status(204);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;

@@ -64,8 +64,47 @@ async function createSunshade(newSunshades) {
   return writeSunshades(sunshades);
 }
 
+/**
+ * Update item
+ */
+async function updateSunshade(updSunshades) {
+  // 1
+  const sunshades = await readSunshades();
+  // 2
+  for (let i = 0; i < sunshades.length; i++) {
+    if (sunshades[i].id === updSunshades) {
+      req.session.brand = req.body.brand;
+      req.session.model = req.body.model;
+      req.session.color = req.body.color;
+      req.session.gender = req.body.gender;
+      req.session.price = req.body.price;
+    }
+  }
+  // 3
+  return writeSunshades(sunshades);
+}
+
+
+/**
+ * Delete item
+ */
+async function deleteSunshade(delSunshades) {
+  // 1
+  const sunshades = await readSunshades();
+  // 2
+  sunshades.forEach((sunshade, i) => {
+    if (sunshade.id === delSunshades) {
+      sunshades.splice(i, 1);
+    }
+  });
+  // 3
+  return writeSunshades(sunshades);
+}
+
 module.exports = {
   getSunshadesById: getSunshadesById,
   getSunshades: readSunshades,
   createSunshade: createSunshade,
+  deleteSunshade: deleteSunshade,
+  updateSunshade: updateSunshade,
 };
