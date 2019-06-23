@@ -71,15 +71,15 @@ async function updateSunshade(updSunshades) {
   // 1
   const sunshades = await readSunshades();
   // 2
-  for (let i = 0; i < sunshades.length; i++) {
-    if (sunshades[i].id === updSunshades) {
-      req.session.brand = req.body.brand;
-      req.session.model = req.body.model;
-      req.session.color = req.body.color;
-      req.session.gender = req.body.gender;
-      req.session.price = req.body.price;
+  sunshades.forEach((sunshade) => {
+    if (sunshade.id === updSunshades.id) {
+      sunshade.brand = updSunshades.brand;
+      sunshade.model = updSunshades.model;
+      sunshade.color = updSunshades.color;
+      sunshade.gender = updSunshades.gender;
+      sunshade.price = updSunshades.price;
     }
-  }
+  });
   // 3
   return writeSunshades(sunshades);
 }

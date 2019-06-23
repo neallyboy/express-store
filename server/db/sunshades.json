@@ -46,5 +46,13 @@
     "color": "Black/Green",
     "gender": "Men",
     "price": "315.99"
+  },
+  {
+    "id": "07",
+    "brand": "BURBERRY",
+    "model": "BE3074",
+    "color": "Grey/Grey",
+    "gender": "Ladies",
+    "price": "249.99"
   }
 ]

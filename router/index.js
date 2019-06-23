@@ -94,7 +94,7 @@ router.post('/product', async (req, res, next) => {
 router.put('/product/:id', async (req, res, next) => {
   // res.send('Update product');
   try {
-    await db.updateSunshade(req.params.id);
+    await db.updateSunshade(req.body);
     const allSunshades = await db.getSunshades();
 
     res
