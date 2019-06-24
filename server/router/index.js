@@ -1,36 +1,19 @@
 'use strict';
 
 const express = require('express');
+const homeRoutes = require('./home');
+const registerRoutes = require('./register');
+
 const db = require('../../db');
 
 const router = express.Router();
 
 // Home route
-router.get('/', async (req, res, next) => {
-  try {
-    // Get all the sun shade porducts json
-    const sunshades = await db.getSunshades();
-
-    // Send status and render home view
-    res
-      .status(200)
-      .render('home', {
-        pageId: 'home',
-        title: 'Home',
-        sunshades: sunshades.map(sunglasses => ({
-          ...sunglasses,
-        })),
-      });
-  } catch (error) {
-    next(error);
-  }
-});
+router.get('/', homeRoutes.get);
 
 // Register route
-router.get('/register', (req, res, next) => {
-  res.sendStatus(200);
-  // res.send('Register User');
-});
+router.get('/register', registerRoutes.get);
+router.post('/register', registerRoutes.post);
 
 // Login route
 router.get('/login', (req, res, next) => {

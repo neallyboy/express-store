@@ -1,30 +1,68 @@
 'use strict';
 
+require('dotenv').config(); // Run this first to ensure all environment variables are set
+const path = require('path');
 const express = require('express');
+const session = require('express-session');
 const router = require('./router');
+const defaultSessionValues = require('./middleware/default-session-values');
+const authentication = require('./middleware/authentication');
 const defaultErrorHandler = require('./middleware/default-error-handler');
 
-// Create an instance of an Express server app
+
+// Create an instance of an express application
 const app = express();
 
-// Use the EJS templating engine (comment this out if no webpages are generated)
+// Set HTML view engine for rendering HTML to EJS from the `view` folder
 app.set('view engine', 'ejs');
 
-// Serve static content, URL paths must start with "/static"
-app.use('/static', express.static('static'));
 
-// Parse incoming JSON
-app.use(express.json({ extended: true }));
+/**
+ * Apply middleware
+ */
 
-// Add our defined routes from router.js
+// Serve open static assets starting from the URL path `/static` from the `static/open` folder
+app.use('/static', express.static(path.resolve('static/open')));
+
+/**
+ * TODO: Apply `express-session` middleware.
+ * @see https://www.npmjs.com/package/express-session
+ */
+app.use(session({
+  secret: process.env.SESSION_SECRET, // Used to cryptographically "sign" the session ID
+  resave: false, // Forces the session to be saved back to the session store, just a sane default
+  saveUninitialized: true, // All HTTP requests without a session have a session started for them
+  cookie: {
+    httpOnly: true, // Makes cookie inaccessible to client side JS
+    maxAge: 12000000, // Cookie will expire after two hours
+  },
+}));
+
+// Middleware to prepare default values for sessions
+// This must come after the session middleware to ensure its values are set properly
+app.use(defaultSessionValues);
+
+// Parse all incoming <form> data into an object we can access in our routes with `req.body`
+app.use(express.urlencoded({ extended: true }));
+
+// Apply router
 app.use(router);
 
-// Default error handler should in any of our routes we call next() with an error
+// Ensure user is logged in
+app.use(authentication);
+
+// Serve protected static assets starting from the URL
+// path `/static/protected` from the folder `static/protected`
+app.use('/static/protected', express.static(path.resolve('static/protected')));
+
+// Default error handling for serving a page for 500 errors
+// This is what calls to the `next` function in our routes calls
 app.use(defaultErrorHandler);
 
 
-// Start the express server
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Express server started on port ${port}.`);
+/**
+ * Start server
+ */
+app.listen(process.env.HTTP_PORT, () => {
+  console.log(`Express server started on port ${process.env.HTTP_PORT}.`);
 });

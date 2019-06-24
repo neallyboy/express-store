@@ -2,7 +2,7 @@
   "name": "transit",
   "version": "1.0.0",
   "private": true,
-	"author": "Neal Miran <neal.miran@gmail.com>",
+  "author": "Neal Miran <neal.miran@gmail.com>",
   "main": "server/index.js",
   "scripts": {
     "start": "nodemon --inspect server",
@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "argon2": "^0.23.0",
+    "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "express-session": "^1.16.2"
   },
   "devDependencies": {
     "eslint": "^5.3.0",
