@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const router = require('./router');
+const router = require('./server/router');
 const defaultErrorHandler = require('./server/middleware/default-error-handler');
 
 // Create an instance of an Express server app

@@ -7,7 +7,7 @@ const fs = require('fs');
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
-const filePath = path.resolve('server/db/sunshades.json');
+const filePath = path.resolve('db/sunshades.json');
 
 /**
  * Reads and returns contents of sunshades.json
