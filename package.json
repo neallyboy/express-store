@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
 	"author": "Neal Miran <neal.miran@gmail.com>",
+  "main": "server/index.js",
   "scripts": {
-    "dev": "nodemon --inspect server/server.js",
+    "start": "nodemon --inspect server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
