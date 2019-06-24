@@ -6,5 +6,9 @@
   {
     "username": "bob",
     "password": "$argon2i$v=19$m=4096,t=3,p=1$F2283nKi15QcX+RWu+YbBg$x6g/wSh4hOyKtk+hvchYj8ZQj4AEuXIp8UG1Q00U4zk"
+  },
+  {
+    "username": "nmiran",
+    "password": "$argon2i$v=19$m=4096,t=3,p=1$cnCW/msN9I5oLZV59kTt8Q$HMfdni+f5XrYxmTEb56Ewu9EvrWqyfJRQJpyRfsROgA"
   }
 ]

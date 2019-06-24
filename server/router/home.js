@@ -13,6 +13,7 @@ async function getHomeRoute(req, res, next) {
       .render('home', {
         pageId: 'home',
         title: 'Home',
+        username: req.session.username,
         sunshades: sunshades.map(sunglasses => ({
           ...sunglasses,
         })),

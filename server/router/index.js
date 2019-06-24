@@ -2,6 +2,8 @@
 
 const express = require('express');
 const homeRoutes = require('./home');
+const loginRoutes = require('./login');
+const logoutRoutes = require('./logout');
 const registerRoutes = require('./register');
 
 const db = require('../../db');
@@ -16,10 +18,11 @@ router.get('/register', registerRoutes.get);
 router.post('/register', registerRoutes.post);
 
 // Login route
-router.get('/login', (req, res, next) => {
-  res.sendStatus(200);
-  // res.send('Login User');
-});
+router.get('/login', loginRoutes.get);
+router.post('/login', loginRoutes.post);
+
+// Logout
+router.get('/logout', logoutRoutes.get);
 
 // All Product route
 router.get('/product', async (req, res, next) => {
