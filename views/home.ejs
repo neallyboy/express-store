@@ -5,41 +5,14 @@
 	</head>
 	<body>
 		<%- include('partials/page-header'); %>
-		<main>
 
-			<section class="jumbotron">
-				<h1>Welcome to the Sun Shades Store</h1>
-			</section>
+    <div class="jumbotron">
+      <h1>Welcome to the Sun Shades Store</h1>
+      <p class="lead">
+        To view your exclusive Sun Shades product list and prices please login.
+      </p>
+    </div>
 
-			<section class="container">
-				<table class="country-table table">
-
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Brand</th>
-								<th>Model</th>
-								<th>Color</th>
-								<th>Gender</th>
-								<th>Price</th>
-							</tr>
-						</thead>
-
-						<tbody>
-							<% sunshades.forEach((sunglasses) => { %>
-								<tr>
-									<td><%= sunglasses.id %></td>
-									<td><%= sunglasses.brand %></td>
-									<td><%= sunglasses.model %></td>
-									<td><%= sunglasses.color %></td>
-									<td><%= sunglasses.gender %></td>
-									<td><%= sunglasses.price %></td>
-								</tr>
-							<% }); %>
-          	</tbody>
-				</table>
-			</section>
-		</main>
 		<%- include('partials/footer'); %>
 	</body>
 </html>
