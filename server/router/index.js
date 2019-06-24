@@ -2,6 +2,7 @@
 
 const express = require('express');
 const homeRoutes = require('./home');
+const secretsRoutes = require('./secrets');
 const loginRoutes = require('./login');
 const logoutRoutes = require('./logout');
 const registerRoutes = require('./register');
@@ -12,6 +13,9 @@ const router = express.Router();
 
 // Home route
 router.get('/', homeRoutes.get);
+
+// Secrets page
+router.get('/secrets', secretsRoutes.get);
 
 // Register route
 router.get('/register', registerRoutes.get);
