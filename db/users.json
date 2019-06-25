@@ -1,0 +1,14 @@
+[
+  {
+    "username": "nmiran",
+    "password": "$argon2i$v=19$m=4096,t=3,p=1$cnCW/msN9I5oLZV59kTt8Q$HMfdni+f5XrYxmTEb56Ewu9EvrWqyfJRQJpyRfsROgA"
+  },
+  {
+    "username": "nealmiran",
+    "password": "$argon2i$v=19$m=4096,t=3,p=1$PpErgrgVIzLekkM2y+8SSA$3Jp1gKIeK4fKvlDDzpMA6TjVDEC4dPNchABmuOmXnXg"
+  },
+  {
+    "username": "bob",
+    "password": "$argon2i$v=19$m=4096,t=3,p=1$X0TAfqBsqHXqKIsaYWxwDw$u9oIYXB+A6Z60uigvJ89QbQ6VEJOaAs8zwrBp9DPfvg"
+  }
+]

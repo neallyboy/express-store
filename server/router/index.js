@@ -1,42 +1,32 @@
 'use strict';
 
 const express = require('express');
-const db = require('../server/db');
+const homeRoutes = require('./home');
+const secretsRoutes = require('./secrets');
+const loginRoutes = require('./login');
+const logoutRoutes = require('./logout');
+const registerRoutes = require('./register');
+
+const db = require('../../db');
 
 const router = express.Router();
 
 // Home route
-router.get('/', async (req, res, next) => {
-  try {
-    // Get all the sun shade porducts json
-    const sunshades = await db.getSunshades();
+router.get('/', homeRoutes.get);
 
-    // Send status and render home view
-    res
-      .status(200)
-      .render('home', {
-        pageId: 'home',
-        title: 'Home',
-        sunshades: sunshades.map(sunglasses => ({
-          ...sunglasses,
-        })),
-      });
-  } catch (error) {
-    next(error);
-  }
-});
+// Secrets page
+router.get('/secrets', secretsRoutes.get);
 
 // Register route
-router.get('/register', (req, res, next) => {
-  res.sendStatus(200);
-  // res.send('Register User');
-});
+router.get('/register', registerRoutes.get);
+router.post('/register', registerRoutes.post);
 
 // Login route
-router.get('/login', (req, res, next) => {
-  res.sendStatus(200);
-  // res.send('Login User');
-});
+router.get('/login', loginRoutes.get);
+router.post('/login', loginRoutes.post);
+
+// Logout
+router.get('/logout', logoutRoutes.get);
 
 // All Product route
 router.get('/product', async (req, res, next) => {
@@ -91,15 +81,32 @@ router.post('/product', async (req, res, next) => {
 });
 
 // Update Product route
-router.put('/product/:id', (req, res, next) => {
+router.put('/product/:id', async (req, res, next) => {
   // res.send('Update product');
-  res.sendStatus(200);
+  try {
+    await db.updateSunshade(req.body);
+    const allSunshades = await db.getSunshades();
+
+    res
+      .json(allSunshades)
+      .status(200);
+  } catch (error) {
+    next(error);
+  }
 });
 
 // Delete by Id route
-router.delete('/product/:id', (req, res, next) => {
-  // res.send('Delete product');
-  res.sendStatus(204);
+router.delete('/product/:id', async (req, res, next) => {
+  try {
+    await db.deleteSunshade(req.params.id);
+    const allSunshades = await db.getSunshades();
+
+    res
+      .json(allSunshades)
+      .status(204);
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
